@@ -30,7 +30,9 @@ export function ImageDetails(): JSX.Element {
     async function fetchData() {
       if (image) {
         const response = await callGoogleVisionAsync(image.base64);
-        setText(response[0].fullTextAnnotation.text);
+        if (response && Array.isArray(response) && response.length > 0) {
+          setText(response[0]?.fullTextAnnotation?.text ?? '');
+        }
       }
     }
     fetchData();
@@ -44,7 +46,6 @@ export function ImageDetails(): JSX.Element {
 
   return (
     <ScrollView style={Layout.fill}>
-      <Text>App title</Text>
       <View style={styles.imageContainer}>
         {media && (
           <Image style={styles.image} source={{ uri: media.uri ?? '' }} />
