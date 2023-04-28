@@ -32,19 +32,19 @@ function showImagePicker(index: number) {
 export function Home(): JSX.Element {
   return (
     <View>
-      <Text>App title</Text>
+      <Text style={styles.textAppName}>App title</Text>
       <TouchableOpacity
         style={styles.btnContainer}
         onPress={() => showImagePicker(0)}>
-        <Text>Camera</Text>
+        <Text style={styles.textButton}>Camera</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.btnContainer}
         onPress={() => showImagePicker(1)}>
-        <Text>Gallery</Text>
+        <Text style={styles.textButton}>Gallery</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.btnContainer}>
-        <Text>Settings</Text>
+        <Text style={styles.textButton}>Settings</Text>
       </TouchableOpacity>
     </View>
   );
